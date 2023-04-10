@@ -14,13 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.conf import settings
-from django.conf.urls.static import static
 from django.urls import path,include
+from django.conf.urls.static import static
+from django.conf import settings
+# from rest_framework_simplejwt import views as jwt_views
+
+
+#Admin Url Config
+admin.site.site_header = 'Ecommerce Krab Templates'
+admin.site.site_title = 'Ecommerce | Krab '
+admin.site.index_title = 'Krab Administration'
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
 
     path("products/", include('products.urls')),
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:  # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL,document_root=settings.STATIC_ROOT)

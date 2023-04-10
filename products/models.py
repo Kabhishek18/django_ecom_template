@@ -5,8 +5,8 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 
 STATUS = (
-    (0,"Draft"),
-    (1,"Publish")
+    (0, "Draft"),
+    (1, "Publish")
 )
 
 #Categories

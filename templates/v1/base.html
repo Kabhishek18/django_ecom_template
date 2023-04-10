@@ -1,0 +1,58 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+	{% include 'v1/nav/head.html' %}
+
+	<body>
+
+		{% include 'v1/nav/preloader.html' %}
+		{% include 'v1/nav/nav.html' %}
+
+		{% block content %}
+		{% endblock %}
+
+		{% include 'v1/nav/foot.html'%}
+
+		<!--====== BACK TO TOP PART START ======-->
+
+		<a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+		<!--====== BACK TO TOP PART ENDS ======-->
+
+
+
+
+
+
+
+
+
+
+		<!--====== jquery js ======-->
+		<script src="{% static 'assets/js/vendor/modernizr-3.6.0.min.js' %}"></script>
+		<script src="{% static 'assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
+
+		<!--====== Bootstrap js ======-->
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+
+		<!--====== Slick js ======-->
+		<script src="{% static 'assets/js/slick.min.js' %}"></script>
+
+		<!--====== Magnific Popup js ======-->
+		<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+
+		<!--====== nav js ======-->
+		<script src="{% static 'assets/js/jquery.nav.js' %}"></script>
+
+		<!--====== Nice Number js ======-->
+		<script src="{% static 'assets/js/jquery.nice-number.min.js' %}"></script>
+
+		<!--====== Main js ======-->
+		<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+
+</html>
