@@ -7,7 +7,7 @@ Multiple codebase Api app in Django that gets the reqirements To do this, I used
 [![ForTheBadge built-with-love](http://ForTheBadge.com/images/badges/built-with-love.svg)](https://GitHub.com/kabhishek18/)
 
 ## Demo
-![]
+![Screenshots](https://github.com/Kabhishek18/django_ecom_template/blob/main/screenshot.png)
 
 ## Installation
 
