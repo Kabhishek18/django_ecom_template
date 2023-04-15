@@ -1,4 +1,4 @@
-# Ecommerce app in Django using Python Requests
+# Django E-commerce Template
 This is a template for building an e-commerce website using Django, Python's web framework. It includes basic features such as product listings, shopping cart, and checkout functionality.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
