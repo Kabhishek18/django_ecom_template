@@ -1,0 +1,41 @@
+{% extends "v1/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <section id="discount-product" class="discount-product pt-50">
+    </section>
+    {% if user.is_authenticated %}
+    <section id="loginid" class="slider-area  pt-100 ">
+        <div class="text-center">
+            <div class="header">
+                <h3>Welcome Back {{user.username}}!</h3>
+            </div>
+
+            <a class="main-btn " href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
+        </div>
+    </section>
+    {% else %}
+       <section id="login" class="slider-area ">
+			<div class="container position-relative">
+				<div class="col-md-12 pt-100">
+                    <div class="text-center">
+                      <h3>Register here !</h3>
+                      <p>Fill the forms details.</p>
+                    </div>
+                  <div class="col-md-12 mx-auto">
+                      <form method="POST" class="form-group rounded" style="border: 1px solid black; margin: 4%; padding:10%; border-radius:1%;">
+                        {% csrf_token %}
+                         <div class="form-group">
+                          {{ form|crispy}}
+                         </div>
+                          <br>
+                        <div class="form-group">
+                             <button class="main-btn" type="submit"><span class="fa fa-login"></span> &nbsp; Register</button>
+
+                        </div>
+                      </form>
+                    </div>
+                </div>
+            </div>
+       </section>
+    {% endif %}
+{% endblock %}

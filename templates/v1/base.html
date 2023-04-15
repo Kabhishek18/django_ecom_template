@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_tags %}
 <!doctype html>
 <html lang="en">
 
@@ -9,7 +10,21 @@
 		{% include 'v1/nav/preloader.html' %}
 		{% include 'v1/nav/nav.html' %}
 
+
+
+		{% if messages %}
+		{% for message in messages %}
+
+			<script>
+			alert("{{ message }}");
+			</script>
+
+		{% endfor %}
+		{% endif %}
+
+
 		{% block content %}
+
 		{% endblock %}
 
 		{% include 'v1/nav/foot.html'%}

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django_summernote.admin import SummernoteModelAdmin
-from .models import Products,Categories,Comment,LabelTag
+from .models import Products,Categories,Comment,LabelTag,Discount
 
 class ProductsAdmin(SummernoteModelAdmin):
     list_display = ('name', 'slug', 'status','labeltag','created_on','updated_on')
@@ -52,8 +52,13 @@ class LabelTagAdmin(SummernoteModelAdmin):
     search_fields = ['name', 'content']
     summernote_fields = ('content',)
 
+class DiscountAdmin(SummernoteModelAdmin):
+    list_display = ('code','percent_off','start_date','end_date','created_on','updated_on')
+    list_filter = ("code",'created_on','updated_on')
+    search_fields = ['code', 'percent_off']
 
 admin.site.register(Categories, CategoryAdmin)
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(LabelTag, LabelTagAdmin)
 admin.site.register(Comment, CommentAdmin)
+admin.site.register(Discount, DiscountAdmin)

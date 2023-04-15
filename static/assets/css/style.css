@@ -154,6 +154,47 @@ p {
       border-color: #fe7865;
       color: #fff; }
 
+.main-btn-outline {
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  @inlude user-select(none);
+  border: 1px solid #fe7865;
+  padding: 0 35px;
+  font-size: 16px;
+  line-height: 48px;
+  color: #fe7865;
+  cursor: pointer;
+  z-index: 5;
+  -webkit-transition: all 0.4s ease-out 0s;
+  -moz-transition: all 0.4s ease-out 0s;
+  -ms-transition: all 0.4s ease-out 0s;
+  -o-transition: all 0.4s ease-out 0s;
+  transition: all 0.4s ease-out 0s;
+  background-color: #fff; }
+  @media (max-width: 767px) {
+    .main-btn-outline {
+      font-size: 14px;
+      padding: 0 25px;
+      line-height: 43px; } }
+  .main-btn-outline i {
+    font-size: 12px;
+    margin-left: 5px; }
+  .main-btn-outline:hover {
+    background-color: #fe7865;
+    color: #fff;
+    border-color: #fe7865; }
+  .main-btn-outline.main-btn-2 {
+    color: #fff;
+    background-color: #fe7865;
+    border-color: #fe7865; }
+    .main-btn-outline.main-btn-2:hover {
+      background-color: #fe7865;
+      border-color: #fe7865;
+      color: #fff; }
+
 /*===== All Section Title Style =====*/
 .section-title h5 {
   position: relative;

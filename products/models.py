@@ -48,9 +48,13 @@ class Categories(MPTTModel):
 class Products(models.Model):
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
+    cost_price = models.DecimalField(default=0,max_digits=9, decimal_places=2)
+    sell_price = models.DecimalField(default=0,max_digits=6, decimal_places=2)
+    quantity = models.PositiveIntegerField(default=0)
     metatag = models.TextField(null=True,default='',blank=True)
     category = models.ForeignKey('Categories', on_delete= models.DO_NOTHING,related_name='cat_pro',blank=True,null=True)
     labeltag = models.ForeignKey('LabelTag', on_delete= models.DO_NOTHING,related_name='pro_tags',blank=True,null=True)
+    discount = models.ForeignKey('Discount', null=True, blank=True, related_name='dis_pro',on_delete=models.DO_NOTHING)
     precontent = models.TextField()
     content = models.TextField()
     status = models.IntegerField(choices=STATUS, default=0)
@@ -84,6 +88,18 @@ class Products(models.Model):
     def __str__(self):
         return self.name
 
+
+class Discount(models.Model):
+    code = models.CharField(max_length=10, unique=True)
+    percent_off = models.FloatField()
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    updated_on = models.DateTimeField(blank=True,auto_now= True)
+    created_on = models.DateTimeField(blank=True,auto_now_add=True)
+
+    def __str__(self):
+        return self.code
 
 #Comments for Post and codes
 class Comment(models.Model):

@@ -34,19 +34,24 @@ INSTALLED_APPS = [
     # adding in installed apps
     #auth Config
     'rest_framework.authtoken',
-    
+
     #required Config
     'rest_framework',
     'django_summernote',
+    'crispy_forms',
+    'crispy_bootstrap4',
+
     #Modules
     "products.apps.ProductsConfig",
+    "users.apps.UsersConfig",
+
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    
+
 ]
 
 MIDDLEWARE = [
@@ -142,6 +147,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # URL used to access the media
 MEDIA_URL = '/media/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
 
