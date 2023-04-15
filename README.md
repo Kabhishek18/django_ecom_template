@@ -1,5 +1,6 @@
 # Ecommerce app in Django using Python Requests
-Multiple codebase Api app in Django that gets the reqirements To do this, I used Python Requests to call the OpenJWT, Oauth, Token Web.
+This is a template for building an e-commerce website using Django, Python's web framework. It includes basic features such as product listings, shopping cart, and checkout functionality.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
 
@@ -14,8 +15,22 @@ Multiple codebase Api app in Django that gets the reqirements To do this, I used
 
 Install the dependencies and devDependencies and start the server.
 
-```sh
+Clone this repository to your local machine using 
+```shell
+git clone https://github.com/Kabhishek18/django_ecom_template.git
+```
+
+Create a virtual environment and activate it using the command virtualenv env (replace env with your preferred name for the virtual environment).
+```shell
+python -m venv env
+```
+```shell
+source env/bin/activate
+```
+```shell
 python -m pip install -r requirements.txt
+```
+```shell
 python manage.py runserver
 ```
 
