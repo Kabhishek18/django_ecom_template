@@ -36,7 +36,7 @@
 												<i class="fa fa-user"></i> {{user.username|capfirst }}
 											  </a>
 											  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-												<a class="dropdown-item" href="#"><i class="fa fa-edit"></i> Profile</a>
+												<a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-edit"></i> Profile</a>
 												<a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Settings</a>
 												<a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
 											  </div>

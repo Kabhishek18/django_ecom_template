@@ -1,17 +1,16 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate,login
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import AuthenticationForm
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, ProfileForm
 from django.core.mail import send_mail
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import get_template
 from django.template import Context
 
 
-########################################################################
-########### register here #####################################
+########### register here #################
 
 def register(request):
     if request.method == 'POST':
@@ -20,7 +19,7 @@ def register(request):
             username = request.POST.get('username')
             #########################mail####################################
             htmly = get_template('v1/Email.html')
-            d = { 'username': username }
+            d = {'username': username}
             subject, from_email, to = 'hello', 'from@example.com', 'to@emaple.com'
             html_content = htmly.render(d)
             msg = EmailMultiAlternatives(subject, html_content, from_email, [to])
@@ -36,24 +35,31 @@ def register(request):
             return redirect('login')
     else:
         form = UserRegisterForm()
-    return render(request, 'v1/register.html', {'form': form,'title':'reqister here'})
+    return render(request, 'v1/register.html', {'form': form,
+                                                'title': 'Register | Ecommerce Django Templates'})
 
-###################################################################################
-################login forms###################################################
+
+################login forms################
 
 def Login(request):
     if request.method == 'POST':
 
-        #AuthenticationForm_can_also_be_used__
+        # AuthenticationForm_can_also_be_used__
 
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            form = login(request,user)
+            form = login(request, user)
             messages.success(request, f' wecome {username} !!')
             return redirect('login')
         else:
             messages.info(request, f'account does not exit plz sign in')
     form = AuthenticationForm()
-    return render(request, 'v1/login.html', {'form':form,'title':'log in'})
+    return render(request, 'v1/login.html', {'form': form, 'title': 'LogIn | Ecommerce Django Templates '})
+
+
+@login_required
+def profile(request):
+    form = ProfileForm()
+    return render(request, 'v1/profile.html', {'form': form,'title': 'Profile | Ecommerce Django Templates '})
