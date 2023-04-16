@@ -8,6 +8,13 @@ STATUS = (
     (0, "Draft"),
     (1, "Publish")
 )
+RATE = (
+    (1, "*"),
+    (2, "**"),
+    (3, "***"),
+    (4, "****"),
+    (5, "*****"),
+)
 
 #Categories
 class Categories(MPTTModel):
@@ -101,27 +108,27 @@ class Discount(models.Model):
     def __str__(self):
         return self.code
 
-#Comments for Post and codes
+#Comments for Products
 class Comment(models.Model):
     name = models.CharField(max_length=300,null=True)
     email = models.CharField(max_length=300)
     content = models.TextField()
-    proname = models.ForeignKey('Products', on_delete= models.DO_NOTHING,related_name='product_comments',blank=True,null=True)
+    product_name = models.ForeignKey('Products', on_delete= models.DO_NOTHING,related_name='product_comments',blank=True,null=True)
     status = models.IntegerField(choices=STATUS, default=0)
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True)
-    
-
     class Meta:
         verbose_name_plural = ("Comments")
 
     def __str__(self):
         return self.name
 
-#Comments for Post and codes
+#label for products
 class LabelTag(models.Model):
     name = models.CharField(max_length=300,null=True)
     content = models.TextField()
+    product_name = models.ForeignKey('Products', on_delete=models.DO_NOTHING, related_name='product_label',
+                                     blank=True, null=True)
     status = models.IntegerField(choices=STATUS, default=0)
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True)
@@ -131,4 +138,16 @@ class LabelTag(models.Model):
     def __str__(self):
         return self.name
 
-    
+#Ratings for products
+class Ratings(models.Model):
+    rating = models.IntegerField(choices=RATE, default=5)
+    product_name = models.ForeignKey('Products', on_delete=models.DO_NOTHING, related_name='product_rating',
+                                     blank=True, null=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    updated_on = models.DateTimeField(auto_now= True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        verbose_name_plural = ("Tags")
+
+    def __str__(self):
+        return self.product_name

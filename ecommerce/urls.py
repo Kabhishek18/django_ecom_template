@@ -28,7 +28,8 @@ admin.site.index_title = 'Krab Administration'
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path("", include('products.urls')),
+    path("products/", include('products.urls')),
+    path("", include('pages.urls')),
     path("users/", include('users.urls')),
 
 ]

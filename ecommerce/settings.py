@@ -12,11 +12,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
@@ -25,26 +25,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG')
 
-
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
 INSTALLED_APPS = [
     # adding in installed apps
-    #auth Config
+    # auth Config
     'rest_framework.authtoken',
 
-    #required Config
+    # required Config
     'rest_framework',
     'django_summernote',
     'crispy_forms',
     'crispy_bootstrap4',
 
-    #Modules
+    # Modules
     "products.apps.ProductsConfig",
     "users.apps.UsersConfig",
+    "pages.apps.PagesConfig",
 
     "django.contrib.admin",
     "django.contrib.auth",
@@ -85,17 +84,25 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "ecommerce.wsgi.application"
 
-
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    # "default": {
+    #     "ENGINE": "django.db.backends.sqlite3",
+    #     "NAME": BASE_DIR / "db.sqlite3",
+    # }
+    # MySQL Database Settings
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('NAME'),
+        'USER': os.getenv('USER'),
+        'PASSWORD': os.getenv('PASSWORD'),
+        'HOST': os.getenv('HOST'),
+        'PORT': os.getenv('PORT'),
     }
-}
 
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -115,7 +122,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
@@ -126,7 +132,6 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
@@ -150,8 +155,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-
-
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     # Comment To Activate the Token Authentication
@@ -161,10 +164,9 @@ REST_FRAMEWORK = {
     #     'rest_framework.authentication.BasicAuthentication',
     #     'rest_framework_simplejwt.authentication.JWTAuthentication',
 
-
     # ],
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticated', ),
+        'rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
     ),
