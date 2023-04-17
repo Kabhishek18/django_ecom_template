@@ -65,9 +65,9 @@ class DiscountAdmin(SummernoteModelAdmin):
 
 
 class RatingsAdmin(SummernoteModelAdmin):
-    list_display = ('product_name','rating', 'status', 'created_on', 'updated_on')
-    list_filter = ("product_name","rating","status", 'created_on', 'updated_on')
-    search_fields = ['name', 'content']
+    list_display = ('product_name','username','rating_review', 'status', 'created_on', 'updated_on')
+    list_filter = ("product_name",'username',"rating_review","status", 'created_on', 'updated_on')
+    search_fields = ['product_name','rating_review','name', 'content']
 
 
 admin.site.register(Categories, CategoryAdmin)
