@@ -17,8 +17,10 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
-# from rest_framework_simplejwt import views as jwt_views
-
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
 
 #Admin Url Config
 admin.site.site_header = 'Ecommerce Krab Templates'
@@ -31,6 +33,10 @@ urlpatterns = [
     path("products/", include('products.urls')),
     path("", include('pages.urls')),
     path("users/", include('users.urls')),
+    # Api branching here
+    path("v1/api/", include('apiset.urls')),
+    path('v1/api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('v1/api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
 ]
 

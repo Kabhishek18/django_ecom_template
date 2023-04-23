@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     # adding in installed apps
     # auth Config
     'rest_framework.authtoken',
+    'rest_framework_simplejwt',
 
     # required Config
     'rest_framework',
@@ -40,10 +41,12 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap4',
 
+
     # Modules
     "products.apps.ProductsConfig",
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
+    "apiset.apps.ApisetConfig",
 
     "django.contrib.admin",
     "django.contrib.auth",
@@ -159,12 +162,11 @@ REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     # Comment To Activate the Token Authentication
     # Token authenctication for basic action
-    # 'DEFAULT_AUTHENTICATION_CLASSES': [
-    #     'rest_framework.authentication.TokenAuthentication',
-    #     'rest_framework.authentication.BasicAuthentication',
-    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
-
-    # ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_RENDERER_CLASSES': (

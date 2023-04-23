@@ -21,6 +21,7 @@ def dynamic_page_view(request, etitle):
         dynamic_page = {
             'title': page.title,
             'content':  page.content,
+            'meta_tag' : page.meta_tag,
         }
         return render(request, 'v1/dynamic_page.html', dynamic_page)
 
