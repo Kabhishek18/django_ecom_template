@@ -1,0 +1,38 @@
+{% extends 'v1/base.html' %}
+{% load static %}
+{% block content %}
+
+{% block css %}
+<style>
+
+.bg-set{
+    background-image: url('https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    height:400px
+    }
+</style>
+{% endblock %}
+<section id="discount-product" class="discount-product pt-150">
+
+        <div class="container">
+            <div class="row justify-content-center bg-set" >
+                <div class="col-md-6 text-center pt-50">
+                    <h1>404</h1>
+                    <h3>Look like you're lost</h3>
+                    <p>The page you are looking for not available!</p>
+                </div>
+                <div class="col-md-6 pt-150">
+                    <div class=" text-center">
+                         <a href="{% url 'home' %}" class="main-btn">
+                            <i class="fa fa-home"></i> Go To Home
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+</section>
+
+{% endblock %}
