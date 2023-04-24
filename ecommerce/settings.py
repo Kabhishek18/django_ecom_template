@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "users.apps.UsersConfig",
     "pages.apps.PagesConfig",
     "apiset.apps.ApisetConfig",
+    "orders.apps.OrdersConfig",
 
     "django.contrib.admin",
     "django.contrib.auth",

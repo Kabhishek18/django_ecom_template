@@ -32,12 +32,12 @@
 									<li class="nav-item">
 										 {% if user.is_authenticated %}
 											<div class="dropdown">
-											  <a class="dropdown-toggle"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											  <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												<i class="fa fa-user"></i> {{user.username|capfirst }}
 											  </a>
 											  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 												<a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-edit"></i> Profile</a>
-												<a class="dropdown-item" href="#"><i class="fa fa-cog"></i> Settings</a>
+												<a class="dropdown-item" href="{% url 'profile' %}"><i class="fa fa-cog"></i> Settings</a>
 												<a class="dropdown-item" href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
 											  </div>
 											</div>
@@ -48,6 +48,9 @@
 										 {% else %}
 											<a data-scroll-nav="0" href="{% url 'login' %}"><i class="fa fa-users"></i> Login</a>
 										{% endif %}
+									</li>
+									<li class="nav-item" id="add-to-cart-icon" style="display:none">
+										<i class="fa fa-shopping-cart"></i> <span id="cart-total-quant">0</span>
 									</li>
 								</ul> <!-- navbar nav -->
 							</div>

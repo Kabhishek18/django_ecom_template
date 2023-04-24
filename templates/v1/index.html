@@ -86,11 +86,26 @@
 											</div></a>
 										  <div class="card-body text-center">
 											<a href="#" class="card-title"><h4 >{{product.name}}</h4></a>
-											<p class="text-muted">
-												<del style="color:red">₹{{product.mrp}}</del> ₹{{product.sell_price}}
-											 </p>
-										  	<a class="btn btn-outline-primary btn-sm" href="#" data-abc="true">View</a>
-										  	<a class="btn btn-outline-primary btn-sm" href="#" data-abc="true"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to cart</a>
+											<div class="container">
+												<del class="text-left" style="color:red">₹{{product.mrp}}</del> <span class="text-right">₹{{product.sell_price}}</span>
+											 </div>
+
+										  	  <div class="cart-btn-box">
+												  <div class="quantity-input" id="quantity-input-{{product.id}}" style="display:none">
+													  <button class="minus-btn" type="button" name="button">
+														<i class="fa fa-minus"></i>
+													  </button>
+													  <input type="text" class="cart-btn-quantity" id="input-quantity-{{product.id}}" name="quantity" value="1">
+													  <button class="plus-btn" type="button" name="button">
+														<i class="fa fa-plus"></i>
+													  </button>
+												  </div>
+											  	<br>
+												<a class="main-btn-outline cart-btn-sm" id="add-to-cart-{{product.id}}" data-id="{{product.id}}" >
+													<i class="fa fa-shopping-cart" aria-hidden="true" >
+													</i> Add to cart
+												</a>
+											  </div>
 										  </div>
 										</div>
 									  </div>

@@ -1,11 +1,11 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: 
-    Template URI: 
-    Description: 
-    Author: 
-    Author:
-    Version: 1.1
+    Template Name: Krab Template
+    Template URI: Not
+    Description: Main
+    Author: Krab
+    Author: KRAb kabhishek18
+    Version: 3.1
 
 -----------------------------------------------------------------------------------
 
@@ -26,7 +26,7 @@
     12.FOOTER
     13.PAGE BANNER
     14.PRODUCT SINGLE PAGE
-
+    15.Cart Feature
 -----------------------------------------------------------------------------------*/
 /*===========================
     1.COMMON css 
@@ -1642,3 +1642,32 @@ p.form-message.error {
           cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */
+
+.quantity-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-input input[type="text"] {
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  width: 50px;
+}
+
+.quantity-input button {
+  font-size: 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.quantity-input button:focus {
+  outline: none;
+}
+
+.quantity-input .plus-btn {
+  margin-left: 10px;
+}

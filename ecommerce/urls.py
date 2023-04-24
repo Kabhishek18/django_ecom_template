@@ -33,6 +33,7 @@ urlpatterns = [
     path("products/", include('products.urls')),
     path("", include('pages.urls')),
     path("users/", include('users.urls')),
+    path("orders/", include('orders.urls')),
     # Api branching here
     path("v1/api/", include('apiset.urls')),
     path('v1/api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),

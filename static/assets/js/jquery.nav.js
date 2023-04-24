@@ -105,7 +105,12 @@
 		},
 
 		getHash: function($link) {
+		if (typeof $link.attr('href') == 'undefined'){
+		    return "blank"
+		}
+		else{
 			return $link.attr('href').split('#')[1];
+		}
 		},
 
 		getPositions: function() {
