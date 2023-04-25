@@ -14,6 +14,7 @@ $(document).ready(function() {
                         productId : productId,
                     },
                   success: function(response) {
+                        console.log(response)
                         updateCartQuant(response,qvalue)
                   },
                   error: function(jqXHR, textStatus, errorThrown) {
@@ -34,7 +35,9 @@ function updateCartQuant(response,qvalue){
         product = JSON.parse(response.data)
 
         totatlQuant = parseInt(totatlQuant) + parseInt(qvalue)
-        console.log(typeof totatlQuant)
+
+
+
         $('#cart-total-quant').text(totatlQuant)
 
 
