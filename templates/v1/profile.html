@@ -1,0 +1,84 @@
+{% extends "v1/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <section id="discount-product" class="discount-product pt-50">
+    </section>
+    {% if user.is_authenticated %}
+    <section id="loginid" class="slider-area  pt-100 ">
+        <div class="container">
+           <div class="row">
+               <div class="col-md-12">
+                    <div class="text-center">
+                        <div class="header">
+                            <h3>Welcome Back <i class="fa fa-user"></i> {{user.username}}!</h3>
+                        </div>
+                    </div>
+               </div>
+           </div>
+        </div>
+        <div class="container mx-auto pt-30">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                <div class="card">
+                  <div class="card-body text-center">
+                    <img src="https://via.placeholder.com/150" alt="Profile Picture" class="img-fluid rounded-circle mb-3">
+                    <h5 class="card-title">John Doe</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-edit mr-2"></i>Edit Profile</a>
+                  </div>
+                </div>
+                </div>
+                <div class="col-md-8">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Profile Details</h5>
+                     <form method="POST" class="form-group rounded" style="border: 1px solid black; margin: 4%; padding:10%; border-radius:1%;">
+                        {% csrf_token %}
+                         <div class="form-group">
+                          {{ form|crispy}}
+                         </div>
+                          <br>
+                        <div class="form-group">
+                             <button class="main-btn" type="submit"><span class="fa fa-login"></span> &nbsp; Register</button>
+
+                        </div>
+                      </form>
+                  </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% else %}
+        <section id="login" class="slider-area ">
+			<div class="container position-relative">
+				<div class="col-md-12 pt-100">
+                    <div class="text-center">
+                      <h3>Login here !</h3>
+                      <p>If not registered, Please click signup button below.</p>
+                    </div>
+                    <div class="row">
+                          <div class="col-md-10 mx-auto">
+                              <form method="POST" class="form-group rounded " style="border: 1px solid black; margin: 4%; padding:10%; border-radius:1%;">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                      {{ form|crispy}}
+                                    </div>
+
+                                   <br/>
+                                   <div class="form-group">
+                                        <button class="main-btn" type="submit"><i class="fa fa-sign-in "></i> &nbsp; login</button>
+
+                                      <a href="{% url 'register' %}" class="main-btn-outline">
+                                         <i class="fa fa-user-plus"></i> Don't have account,sign up
+                                      </a>
+                                   </div>
+
+                              </form>
+                         </div>
+				    </div> <!-- row -->
+                </div>
+			</div> <!-- container -->
+		</section>
+    {% endif %}
+{% endblock content %}

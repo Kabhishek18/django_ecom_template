@@ -1,0 +1,80 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!doctype html>
+<html lang="en">
+
+	{% include 'v1/nav/head.html' %}
+
+	<body>
+
+		{% include 'v1/nav/preloader.html' %}
+		{% include 'v1/nav/nav.html' %}
+
+
+
+		{% if messages %}
+		{% for message in messages %}
+
+			<script>
+			alert("{{ message }}");
+			</script>
+
+		{% endfor %}
+		{% endif %}
+
+
+		{% block content %}
+
+		{% endblock %}
+
+		{% include 'v1/nav/foot.html'%}
+
+		<!--====== BACK TO TOP PART START ======-->
+
+		<a href="#" class="back-to-top"><i class="lni-chevron-up"></i></a>
+
+		<!--====== BACK TO TOP PART ENDS ======-->
+
+
+
+
+
+
+
+
+
+
+		<!--====== jquery js ======-->
+		<script src="{% static 'assets/js/vendor/modernizr-3.6.0.min.js' %}"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+		<!--====== Bootstrap js ======-->
+		<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+
+		<!--====== Slick js ======-->
+		<script src="{% static 'assets/js/slick.min.js' %}"></script>
+
+		<!--====== Magnific Popup js ======-->
+		<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+
+
+		<!--====== nav js ======-->
+		<script src="{% static 'assets/js/jquery.nav.js' %}"></script>
+
+		<!--====== Nice Number js ======-->
+		<script src="{% static 'assets/js/jquery.nice-number.min.js' %}"></script>
+
+		<!--====== Main js ======-->
+		<script src="{% static 'assets/js/main.js' %}"></script>
+<script>
+    var pathurl = "{% url 'home' %}";
+</script>
+		<!--====== Main js ======-->
+		<script src="{% static 'assets/js/cart.js' %}"></script>
+
+	</body>
+
+</html>
+
