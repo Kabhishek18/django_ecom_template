@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
-DEBUG = os.getenv('DEBUG')
+SECRET_KEY ='django-insecure-tivs7&)*kst+_6v+j%y-ci@i_uxrm=r1)@hrjx8@x=jnz8#u!3'
+DEBUG = True
+ALLOWED_HOSTS = ['*']
 
-ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -92,19 +92,19 @@ WSGI_APPLICATION = "ecommerce.wsgi.application"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    # "default": {
-    #     "ENGINE": "django.db.backends.sqlite3",
-    #     "NAME": BASE_DIR / "db.sqlite3",
-    # }
-    # MySQL Database Settings
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('NAME'),
-        'USER': os.getenv('USER'),
-        'PASSWORD': os.getenv('PASSWORD'),
-        'HOST': os.getenv('HOST'),
-        'PORT': os.getenv('PORT'),
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
+    # MySQL Database Settings
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'ecom',
+    #     'USER': 'root',
+    #     'PASSWORD':"" ,
+    #     'HOST': '127.0.0.1',
+    #     'PORT': '3306',
+    # }
 
 }
 
